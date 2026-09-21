@@ -8,8 +8,16 @@ const  loadDashboard= async(userld)=>{
         const user= await data.json()
     }
     catch{
-        
+
     }
-    showloader(false)
+    const totalSpent=user.reduce((sum,u)=>{
+        sum+u.amount
+    },0)
+
+    const unread=user.filter(item =>{
+        item.read===False
+    }).length
+    
+    
 
 }
